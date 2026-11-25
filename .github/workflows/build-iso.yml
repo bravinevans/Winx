@@ -92,6 +92,7 @@ jobs:
           mkdir -p /tmp/release
           sha256sum "$ISO_FILE" > "/tmp/release/${ISO_NAME}.sha256"
 
+          rclone delete "r2:winx-os" --include "*.iso" --s3-no-check-bucket || true
           rclone copyto "$ISO_FILE" "r2:winx-os/${ISO_NAME}" --s3-no-check-bucket --progress
           DIRECT_URL="${R2_PUBLIC_URL}/${ISO_NAME}"
 
