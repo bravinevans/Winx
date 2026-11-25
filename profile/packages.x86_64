@@ -1,6 +1,7 @@
 # Base System, Kernel, Microcode & Boot
 base
 base-devel
+archiso
 linux-zen
 linux-zen-headers
 linux-firmware
