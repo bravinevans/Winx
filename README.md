@@ -30,5 +30,5 @@ WinX OS is distributed as a single, unsplit **2.7 GB** bootable `.iso` hosted on
 1. Grab the latest direct `.iso` download link and `.sha256` checksum from the [**Releases**](https://github.com/bravinevans/Winx/releases) page.
 2. *(Optional)* Download via terminal with automatic connection resume and verify integrity:
    ```bash
-   aria2c -c -x 4 -s 4 "DIRECT_ISO_URL_FROM_RELEASE"
-   sha256sum -c winx-os-*.iso.sha256
+CLI Resume Download: aria2c -c -x 4 -s 4 https://pub-ff211483edf34a0b85d23a9f40e81dab.r2.dev/winx-os-2026.11.25-x86_64.iso
+Verify Checksum: sha256sum -c winx-os-2026.11.25-x86_64.iso.sha256
