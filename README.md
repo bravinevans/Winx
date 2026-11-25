@@ -32,3 +32,4 @@ WinX OS is distributed as a single, unsplit **2.7 GB** bootable `.iso` hosted on
    ```bash
 CLI Resume Download: aria2c -c -x 4 -s 4 https://pub-ff211483edf34a0b85d23a9f40e81dab.r2.dev/winx-os-2026.11.25-x86_64.iso
 Verify Checksum: sha256sum -c winx-os-2026.11.25-x86_64.iso.sha256
+```
