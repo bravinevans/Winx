@@ -20,7 +20,12 @@ cp -f /usr/local/share/applications/libreoffice-calc.desktop "$HOME/Desktop/WinX
 cp -f /usr/local/share/applications/libreoffice-impress.desktop "$HOME/Desktop/WinX-PowerPoint.desktop" 2>/dev/null || true
 chmod +x "$HOME/Desktop/"*.desktop 2>/dev/null || true
 
-# 3. Bottom taskbar (44px), custom WinX Start icon, pinned apps & deep-blue wave wallpaper
+# 3. Wait for plasmashell DBus service, then apply 44px taskbar, WinX Start icon, pinned apps & wallpaper
+for _ in $(seq 1 30); do
+    qdbus6 org.kde.plasmashell /PlasmaShell >/dev/null 2>&1 && break
+    sleep 0.5
+done
+
 qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript '
 var allDesktops = desktops();
 for (var d = 0; d < allDesktops.length; d++) {
