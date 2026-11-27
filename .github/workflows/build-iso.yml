@@ -59,9 +59,8 @@ jobs:
           cp -f /usr/share/pixmaps/winx-watermark.png /usr/share/plymouth/themes/spinner/watermark.png
           EOF
 
-          # Enable Plymouth quiet splash in GRUB and Syslinux boot configs
-          sed -i 's/archisosearchuuid=%ARCHISO_UUID%/archisosearchuuid=%ARCHISO_UUID% quiet splash/g' /tmp/build-profile/grub/grub.cfg
-          sed -i 's/archisosearchuuid=%ARCHISO_UUID%/archisosearchuuid=%ARCHISO_UUID% quiet splash/g' /tmp/build-profile/syslinux/*.cfg
+          # Enable Plymouth quiet splash in GRUB, Syslinux, and EFI boot configs
+          sed -i 's/archisosearchuuid=%ARCHISO_UUID%/archisosearchuuid=%ARCHISO_UUID% quiet splash/g' /tmp/build-profile/grub/grub.cfg /tmp/build-profile/efiboot/loader/entries/*.conf /tmp/build-profile/syslinux/*.cfg
 
           # Enable SDDM and NetworkManager on boot
           mkdir -p /tmp/build-profile/airootfs/etc/systemd/system/multi-user.target.wants
